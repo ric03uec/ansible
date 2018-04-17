@@ -1,5 +1,8 @@
 language: python
 
+runtime:
+  nodePool: dynamic_u16_xlarge
+  
 env:
   matrix:
     - T=none
