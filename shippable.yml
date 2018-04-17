@@ -37,5 +37,5 @@ build:
     options: "--privileged=false --net=bridge"
   ci:
     - echo "--------- Testing ----------"
-    - dd bs=1M count=256 if=/tmp/zero of=/tmp/copy-zero
+    - dd bs=1M count=256 if=/dev/zero of=/tmp/copy-zero
     #- test/utils/shippable/timing.sh test/utils/shippable/shippable.sh $T
