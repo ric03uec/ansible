@@ -36,10 +36,10 @@ build:
     pull: false
     options: "--privileged=false --net=bridge"
   ci:
-    - echo "--------- Testing Reads -----------\n"
-    - for i in $(seq 10); do echo "---- read $i ----"; time dd bs=1M count=256 if=/dev/zero of=/tmp/copy-zero ;done
+    - echo "--------- Testing new file create time -----------\n"
+    - for i in $(seq 10); do echo "---- read $i ----"; dd bs=1M count=256 if=/dev/zero of=/tmp/copy-zero ;done
     - echo "-----------Done-------------------\n\n"
-    - echo "--------- Testing Writes -----------\n"
-    - for i in $(seq 10); do echo "---- read $i ----"; time dd bs=1M count=256 if=/tmp/copy-zero of=/dev/null ;done
+    - echo "--------- Testing copy times -----------\n"
+    - for i in $(seq 10); do echo "---- read $i ----"; dd bs=1M count=256 if=/tmp/copy-zero of=/tmp/something-new-$i ;done
     - echo "-----------Done-------------------"
     #- test/utils/shippable/timing.sh test/utils/shippable/shippable.sh $T
